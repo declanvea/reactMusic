@@ -1,6 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import '../styles/App.css';
+import NavBar from './navbar';
+import PlayList from './playlist';
+import PlayListForm from './playlistform';
+import PlayListItem from './playlistitem';
 
 class App extends React.Component {
   render() {

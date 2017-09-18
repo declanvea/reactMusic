@@ -3,7 +3,7 @@
 //This expression or method (depending on the syntax you choose) will be comparable to this:
 
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import '../styles/App.css';
 
 class PlayListForm extends React.Component {
