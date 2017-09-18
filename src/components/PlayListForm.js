@@ -4,7 +4,7 @@
 
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import '../styles/App.css';
 
 class PlayListForm extends React.Component {
 
@@ -38,4 +38,4 @@ class PlayListForm extends React.Component {
   }
 }
 
-export default App;
+export default PlayListForm;

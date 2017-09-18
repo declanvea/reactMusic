@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import '../styles/App.css';
 
 class PlayList extends React.Component {
 
@@ -38,4 +38,4 @@ class PlayList extends React.Component {
   }
 }
 
-export default App;
+export default PlayList;
