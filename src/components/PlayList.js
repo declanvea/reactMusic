@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
-import '../styles/App.css';
+import playlistitem from './playlistitem';
 
 class PlayList extends React.Component {
 
@@ -33,6 +32,14 @@ class PlayList extends React.Component {
   render() {
     return (
       <div>
+        <div class="card w-75">
+          <div class="card-body">
+            <p class="card-text">User:</p>
+            <p class="card-text">Artist/Band:</p>
+            <p class="card-text">Title:</p>
+            <p class="card-text">Notes:</p>
+          </div>
+        </div>
       </div>
     );
   }

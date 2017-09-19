@@ -3,10 +3,14 @@
 //This expression or method (depending on the syntax you choose) will be comparable to this:
 
 import React from 'react';
-import logo from '../logo.svg';
-import '../styles/App.css';
 
 class PlayListForm extends React.Component {
+  state = {
+    userName: '',
+    songNotes: '',
+    songArtist: '',
+    songTitle: ''
+  }
 
   addToList = (e) => {
       e.preventDefault();
@@ -33,6 +37,25 @@ class PlayListForm extends React.Component {
   render() {
     return (
       <div>
+        <form>
+          <div className="form-group">
+            <label for="exampleFormControlInput1">User Name:</label>
+            <input type="text" classNameName="form-control" id="exampleFormControlInput1" placeholder="Name or User Name"/>
+          </div>
+          <div className="form-group">
+            <label for="exampleFormControlInput1">Artist/Band:</label>
+            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name"/>
+          </div>
+          <div className="form-group">
+            <label for="exampleFormControlInput1">Song Title:</label>
+            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Song Title"/>
+          </div>
+          <div className="form-group">
+            <label for="exampleFormControlTextarea1">Notes about Song:</label>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     );
   }
