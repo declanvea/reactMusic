@@ -14,8 +14,8 @@ class App extends React.Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro"></p>
-        <PlayListForm/>
-        <PlayList/>
+        <PlayListForm className="col-6"/>
+        <PlayList className="col-6"/>
       </div>
     );
   }

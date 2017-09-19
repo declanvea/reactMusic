@@ -32,12 +32,14 @@ class PlayList extends React.Component {
   render() {
     return (
       <div>
-        <div class="card w-75">
-          <div class="card-body">
-            <p class="card-text">User:</p>
-            <p class="card-text">Artist/Band:</p>
-            <p class="card-text">Title:</p>
-            <p class="card-text">Notes:</p>
+        <div className="col-6">
+          <div className="card w-75">
+            <div className="card-body">
+              <p className="card-text">User:</p>
+              <p className="card-text">Artist/Band:</p>
+              <p className="card-text">Title:</p>
+              <p className="card-text">Notes:</p>
+            </div>
           </div>
         </div>
       </div>
