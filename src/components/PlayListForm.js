@@ -48,7 +48,7 @@ class PlayListForm extends React.Component {
         <div style={formStyle}>
             <div className="form-group">
               <label for="exampleFormControlInput1">Username:</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name" onChange={this.handleSongUserName} value={this.state.userName}/>
+              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name" onChange={this.handleUserName} value={this.state.userName}/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlInput1">Artist/Band:</label>
