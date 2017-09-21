@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../styles/App.css';
-import NavBar from './navbar';
-import PlayList from './playlist';
-import PlayListForm from './playlistform';
+import NavBar from './NavBar';
+import PlayList from './PlayList';
+import PlayListForm from './PlayListForm';
 
 class App extends React.Component {
   render() {

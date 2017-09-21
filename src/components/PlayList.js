@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayListItem from './playlistitem';
+import PlayListItem from './PlayListItem';
 import {Button} from 'reactstrap';
 
 class PlayList extends React.Component {
