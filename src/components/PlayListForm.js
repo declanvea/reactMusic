@@ -3,6 +3,7 @@
 //This expression or method (depending on the syntax you choose) will be comparable to this:
 
 import React from 'react';
+import {Button} from 'reactstrap';
 
 class PlayListForm extends React.Component {
   state = {
@@ -14,7 +15,6 @@ class PlayListForm extends React.Component {
 
   addToList = (e) => {
       e.preventDefault();
-      this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
       let listItem = JSON.stringify(this.state);
 
       fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
@@ -23,39 +23,46 @@ class PlayListForm extends React.Component {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-      }
-    }
-    ).then(response => {
-      console.log(response, "yay");
+          }
+      }).then(response => {
+        console.log(response, "yay");
 
-    }).catch(err => {
-      console.log(err, "boo!");
-    });
+      }).catch(err => {
+        console.log(err, "boo!");
+      });
     this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
   }
 
+  handleUserName = (e) => this.setState({userName: e.target.value});
+  handlesongNotes = (e) => this.setState({songNotes: e.target.value});
+  handleSongArtist = (e) => this.setState({songArtist: e.target.value});
+  handleSongTitle = (e) => this.setState({songTitle: e.target.value});
+
   render() {
+    const formStyle = {
+      margin: '5px',
+    }
     return (
       <div>
         <form>
-        <div className="col-6">
+        <div style={formStyle}>
             <div className="form-group">
-              <label for="exampleFormControlInput1">User Name:</label>
-              <input type="text" classNameName="form-control" id="exampleFormControlInput1" placeholder="Name or User Name"/>
+              <label for="exampleFormControlInput1">Username:</label>
+              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name" onChange={this.handleSongUserName} value={this.state.userName}/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlInput1">Artist/Band:</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name"/>
+              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Artist or Band Name" onChange={this.handleSongArtist} value={this.state.songArtist}/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlInput1">Song Title:</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Song Title"/>
+              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Song Title" onChange={this.handleSongTitle} value={this.state.songTitle}/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlTextarea1">Notes about Song:</label>
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handlesongNotes} value={this.state.songNotes}></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <Button color="primary" type="submit" class="btn btn-primary" onClick={this.addToList}>Submit</Button>
           </div>
         </form>
       </div>

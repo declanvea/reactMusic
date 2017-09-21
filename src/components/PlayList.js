@@ -1,19 +1,22 @@
 import React from 'react';
-import playlistitem from './playlistitem';
+import PlayListItem from './playlistitem';
+import {Button} from 'reactstrap';
 
 class PlayList extends React.Component {
-
+  state = {
+    songs: []
+  }
   //Inside of a componentDidMount function on the PlayList component
   //You should have the following fetch call to retrieve the playlists
   //from the server. Don't worry as much about how these function for now, as much placing
   //them in the right locations and getting them to work/sync up properly with the component.
   componentDidMount(){
-  fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-        return results.json();
-      }).then(data => {
-        this.setState({songs: data});
-        console.log("state", this.state.songs);
-      })
+      fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+            return results.json();
+          }).then(data => {
+            this.setState({songs: data});
+            console.log("state", this.state.songs);
+          })
     }
 
       //Also in your PlayList component you should have a function that manually updates
@@ -30,18 +33,17 @@ class PlayList extends React.Component {
         }
 
   render() {
+    const listStyle = {
+      margin: '5px',
+    }
     return (
-      <div>
-        <div className="col-6">
-          <div className="card w-75">
-            <div className="card-body">
-              <p className="card-text">User:</p>
-              <p className="card-text">Artist/Band:</p>
-              <p className="card-text">Title:</p>
-              <p className="card-text">Notes:</p>
-            </div>
-          </div>
+      <div style={listStyle}>
+        <div>
+          <Button onClick={this.fetchData} color="success">Update List</Button>
         </div>
+          {this.state.songs.map((song, i) =>
+            <PlayListItem key={i} {...song}/>
+          )}
       </div>
     );
   }
